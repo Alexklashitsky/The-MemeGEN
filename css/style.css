@@ -9,10 +9,21 @@ body{
 }
 header{
     height: 130px;
+    background-color: orange;
         display: flex;
         justify-content: space-between;
         align-items: center;
 }
+header  .logo{
+    padding-left: 5%;
+}
+
+header nav{
+   
+    padding-right: 5%;
+}
+
+
 
 
 ul{
@@ -28,21 +39,29 @@ li{
 }
 
 .continer{
-    background-color: gold;
+    background-color: gray;
 }
 .search-bar{
-    background-color:forestgreen;
+    background-color:white;
     height: 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 .gallery{
     /* display: none; */
+    text-align: center;
 }
 footer{
-    background-color: hotpink;
-    height: 35px;
+    background-color: orange;
+    height: 135px;
+    text-align: center;
+}
+
+footer .logo{
+    /* text-align: center; */
 }
 .modal{
     display: flex;
