@@ -14,7 +14,7 @@ function onOpenModal() {
 function onCloseModal() {
     document.querySelector('.gallery').style.display = "block"
     document.querySelector('.modal').style.display = "none"
-    setLineTxt('')
+    restLines()
 }
 
 function onImgClicked(data) {
@@ -65,29 +65,37 @@ function renderDownline(gMeme) {
 
 
 function onSave() {
-    console.log('hi');
-    var upperLine = document.querySelector('[name=upperLine]').value
-    setLineTxt(upperLine)
-    document.querySelector('[name=upperLine]').value = ''
+    var line = document.querySelector('[name=line]').value
+
+    if (focusedOnTop) setLineTxt(line, 'upper')
+
+
+    else setLineTxt(line, 'down')
+    document.querySelector('[name=line]').value = ''
+
     getMeme()
+
 }
 
 function onFontColorChange() {
-    console.log('hi');
     var fontColor = document.querySelector('[name=fontColor]').value
-    console.log('fontColor:', fontColor);
-    setFontColor(fontColor)
+    if (focusedOnTop) setFontColor(fontColor, 'upper')
+    else setFontColor(fontColor, 'down')
+
     getMeme()
 
 }
 
 function onIncrease() {
-    setFontSize('+')
+    if (focusedOnTop) setFontSize('+', 'upper')
+    else setFontSize('+', 'down')
     getMeme()
 
 }
 function onDecrease() {
-    setFontSize('-')
+    if (focusedOnTop) setFontSize('-', 'upper')
+    else setFontSize('-', 'down')
+    console.log('dffdfd');
     getMeme()
 
 }

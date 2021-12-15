@@ -50,7 +50,7 @@
                 <div class="controller">
 
                     <label for="first line">upper line</label>
-                    <input type="text" class="upperLine" name="upperLine" placeholder="write something up">
+                    <input type="text" class="line" name="line" placeholder="write something up">
                     <label for="color">choose 'font' color</label>
                     <input type="color" class="color" name="fontColor" onchange="onFontColorChange()" list='colorList'>
                     <div>
@@ -62,10 +62,8 @@
                     <select class="focus" name="focus" onchange="onFocusSet()">
                         <option value="upper">upper</option>
                         <option value="down">down</option>
-
-
-                        <button onclick="onSave()">save</button>
-
+                    </select>
+                    <button onclick="onSave()">save</button>
 
                 </div>
             </div>
@@ -77,7 +75,6 @@
         <small>copyrights</small>
 
     </footer>
-
 
 
 
