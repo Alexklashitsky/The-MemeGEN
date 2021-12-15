@@ -1,13 +1,30 @@
 'use strict'
 var gCanvas
 var gCtx
-// var gUpperLine = ''
 
 
 gCanvas = document.querySelector('#my-canvas');
 gCtx = gCanvas.getContext('2d');
 
-// renderMeme(pic, test)
+function onOpenModal() {
+    document.querySelector('.gallery').style.display = "none"
+    document.querySelector('.modal').style.display = "flex"
+}
+function onCloseModal() {
+    document.querySelector('.gallery').style.display = "block"
+    document.querySelector('.modal').style.display = "none"
+    setLineTxt('')
+}
+
+function onImgClicked(data) {
+    var imgNum = +data.dataset.num
+    console.log('imgNum:', imgNum);
+
+    setImg(imgNum)
+    onOpenModal()
+    getMeme()
+}
+
 
 function renderMeme(img, content) {
     var content = content

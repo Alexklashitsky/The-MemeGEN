@@ -7,7 +7,6 @@ var gMeme = {
 
 }
 
-
 getMeme()
 
 function getMeme() {
@@ -19,5 +18,11 @@ function getMeme() {
 function setLineTxt(text) {
     var line = text
     gMeme.line1 = line
+}
+function setImg(num) {
+    gMeme.pic = 'img' + num
+    console.log('num:', num);
+    console.log('gMeme:', gMeme);
+
 
 }
