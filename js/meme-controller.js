@@ -1,10 +1,10 @@
 'use strict'
 var gCanvas
 var gCtx
-
-
 gCanvas = document.querySelector('#my-canvas');
 gCtx = gCanvas.getContext('2d');
+var gFontColor
+var gFontSize
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
@@ -26,23 +26,27 @@ function onImgClicked(data) {
 }
 
 
-function renderMeme(img, content) {
-    var content = content
-    //pic
+function renderMeme(gMeme) {
+
+    var content = gMeme.line1
+    var img = gMeme.pic
     var elImg = document.querySelector(`.${img}`);
+    var fontColor = gMeme.fontColor
+    var fontSize = gMeme.fontSize
     console.log('elImg:', elImg);
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
-    // console.log('txt:', test);
 
 
     //txt
     gCtx.textBaseline = 'middle';
     gCtx.textAlign = 'center';
-    gCtx.font = '50px monospace';
-    gCtx.fillStyle = 'white';
+    gCtx.font = `${fontSize}px monospace`;
+    gCtx.fillStyle = fontColor;
     gCtx.fillText(`${content}`, 200, 70);
 
 }
+
+
 
 function onSave() {
     console.log('hi');
@@ -52,8 +56,25 @@ function onSave() {
     getMeme()
 }
 
+function onFontColorChange() {
+    console.log('hi');
+    var fontColor = document.querySelector('[name=fontColor]').value
+    console.log('fontColor:', fontColor);
+    setFontColor(fontColor)
+    getMeme()
 
+}
 
+function onIncrease() {
+    setFontSize('+')
+    getMeme()
+
+}
+function onDecrease() {
+    setFontSize('-')
+    getMeme()
+
+}
 // function onType() {
 //     var currKey = document.querySelector('[name=upperLine]').value
 //     gUpperLine += currKey

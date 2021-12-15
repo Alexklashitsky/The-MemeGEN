@@ -1,18 +1,17 @@
 'use strict'
 var gMeme = {
-    pic: 'img1',
-    line1: ''
-
-
-
+    pic: '',
+    line1: '',
+    fontColor: 'white',
+    fontSize: 50
 }
 
-getMeme()
+// getMeme()
 
 function getMeme() {
-    var pic = gMeme.pic
-    var line = gMeme.line1
-    renderMeme(pic, line)
+    // var pic = gMeme.pic
+    // var line = gMeme.line1
+    renderMeme(gMeme)
 }
 
 function setLineTxt(text) {
@@ -23,6 +22,24 @@ function setImg(num) {
     gMeme.pic = 'img' + num
     console.log('num:', num);
     console.log('gMeme:', gMeme);
+
+
+}
+function setFontColor(color) {
+    gMeme.fontColor = color
+}
+function setFontSize(sigh) {
+    var fontSize = gMeme.fontSize
+    if (sigh === '+') {
+        fontSize += 2
+        gMeme.fontSize = fontSize
+        console.log('fontSize:', fontSize);
+    }
+    else {
+        fontSize -= 2
+        gMeme.fontSize = fontSize
+        console.log('fontSize:', fontSize);
+    }
 
 
 }

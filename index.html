@@ -51,6 +51,15 @@
 
                     <label for="first line">upper line</label>
                     <input type="text" class="upperLine" name="upperLine" placeholder="write something up">
+                    <label for="color">choose 'font' color</label>
+                    <input type="color" class="color" name="fontColor" onchange="onFontColorChange()" list='colorList'>
+                    <div>
+                        font size
+                        <button onclick="onIncrease()">+</button>
+                        <button onclick="onDecrease()">-</button>
+                    </div>
+
+
                     <button onclick="onSave()">save</button>
 
 
