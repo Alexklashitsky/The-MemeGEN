@@ -5,6 +5,7 @@ gCanvas = document.querySelector('#my-canvas');
 gCtx = gCanvas.getContext('2d');
 var gFontColor
 var gFontSize
+var focusedOnTop = true
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
@@ -42,7 +43,22 @@ function renderMeme(gMeme) {
     gCtx.textAlign = 'center';
     gCtx.font = `${fontSize}px monospace`;
     gCtx.fillStyle = fontColor;
-    gCtx.fillText(`${content}`, 200, 70);
+    gCtx.fillText(`${content}`, 200, 50);
+
+
+}
+
+function renderDownline(gMeme) {
+
+    var content = gMeme.line2
+    var fontColor = gMeme.fontColorDown
+    var fontSize = gMeme.fontSizeDown
+
+    gCtx.textBaseline = 'middle';
+    gCtx.textAlign = 'center';
+    gCtx.font = `${fontSize}px monospace`;
+    gCtx.fillStyle = fontColor;
+    gCtx.fillText(`${content}`, 200, 400);
 
 }
 
@@ -74,6 +90,15 @@ function onDecrease() {
     setFontSize('-')
     getMeme()
 
+}
+
+function onFocusSet() {
+    var currFocus = document.querySelector('[name=focus]').value
+    // console.log('currFocus:', currFocus);
+    if (currFocus === 'upper') {
+        focusedOnTop = true
+    }
+    else focusedOnTop = false
 }
 // function onType() {
 //     var currKey = document.querySelector('[name=upperLine]').value

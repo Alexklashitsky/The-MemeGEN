@@ -3,7 +3,12 @@ var gMeme = {
     pic: '',
     line1: '',
     fontColor: 'white',
-    fontSize: 50
+    fontSize: 50,
+    line2: 'sgdgrgf',
+    fontColorDown: 'white',
+    fontSizeDown: 50
+
+
 }
 
 // getMeme()
@@ -12,6 +17,7 @@ function getMeme() {
     // var pic = gMeme.pic
     // var line = gMeme.line1
     renderMeme(gMeme)
+    renderDownline(gMeme)
 }
 
 function setLineTxt(text) {

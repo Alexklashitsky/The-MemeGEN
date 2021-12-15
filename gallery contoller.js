@@ -1,5 +1,5 @@
 'use strict'
-const gNumOfImg = 2
+const gNumOfImg = 10
 
 
 renderGallery()
