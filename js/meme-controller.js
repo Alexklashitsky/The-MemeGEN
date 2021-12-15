@@ -1,18 +1,13 @@
 'use strict'
 var gCanvas
 var gCtx
-var pic = 'img1'
-var test = 'bla bla bla'
+// var gUpperLine = ''
 
 
 gCanvas = document.querySelector('#my-canvas');
 gCtx = gCanvas.getContext('2d');
 
 // renderMeme(pic, test)
-
-
-
-
 
 function renderMeme(img, content) {
     var content = content
@@ -30,6 +25,26 @@ function renderMeme(img, content) {
     gCtx.fillStyle = 'white';
     gCtx.fillText(`${content}`, 200, 70);
 
-
-
 }
+
+function onSave() {
+    console.log('hi');
+    var upperLine = document.querySelector('[name=upperLine]').value
+    setLineTxt(upperLine)
+    document.querySelector('[name=upperLine]').value = ''
+    getMeme()
+}
+
+
+
+// function onType() {
+//     var currKey = document.querySelector('[name=upperLine]').value
+//     gUpperLine += currKey
+//     // console.log('line:', gUpperLine);
+//     console.log('gUpperLine:', gUpperLine);
+
+
+
+//     // console.log('newText:', newText);
+
+// }
