@@ -16,6 +16,9 @@ header nav{
    
     padding-right: 5%;
 }
+ul{
+    flex-direction: row
+}
 li{
     padding-left: 100px;
 }
