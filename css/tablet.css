@@ -13,6 +13,21 @@ ul{
  li{
     padding-left: 30px;
 }
+.btn {
+    background: orange;
+    border: 1px solid orange;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0 5px;
+    user-select: none;
+    white-space: nowrap;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin: 3px;
+  }
 
 .search-bar{
     height: 70px;

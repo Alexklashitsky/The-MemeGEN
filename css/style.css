@@ -136,7 +136,7 @@ canvas {
     
 }
 
-.btn {
+/* .btn {
     background: orange;
     border: 1px solid orange;
     font-size: 22px;
@@ -150,7 +150,7 @@ canvas {
     border-radius: 3px;
     text-decoration: none;
     margin: 3px;
-  }
+  } */
 
   input[type=color] {
     width: 100%;

@@ -34,6 +34,22 @@ footer{
     align-items: center;
     justify-content: center;
 }
+.btn {
+    background: orange;
+    border: 1px solid orange;
+    font-size: 12px;
+    color: #fff;
+    cursor: pointer;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-bottom: 5px;
+    
+    user-select: none;
+    white-space: nowrap;
+    
+    border-radius: 3px;
+    text-decoration: none;
+    /* margin: 3px; */
+  }
 .canvas-container{
     height: 250px;
     width: 250px;
