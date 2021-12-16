@@ -38,6 +38,7 @@ function renderMeme(gMeme) {
     var elImg = document.querySelector(`.${img}`);
     var fontColor = gMeme.topLine.fontColor
     var fontSize = gMeme.topLine.fontSize
+    var strokeColor = gMeme.topLine.strokeColor
     console.log('elImg:', elImg);
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 
@@ -47,7 +48,11 @@ function renderMeme(gMeme) {
     gCtx.textAlign = gMeme.topLine.textAlign;
     gCtx.font = `${fontSize}px monospace`;
     gCtx.fillStyle = fontColor;
+    gCtx.strokeStyle = strokeColor
+    gCtx.strokeText(`${content}`, 200, gMeme.topLine.height);
+
     gCtx.fillText(`${content}`, 200, gMeme.topLine.height);
+
 
 
 }
@@ -57,12 +62,17 @@ function renderDownline(gMeme) {
     var content = gMeme.buttonline.line
     var fontColor = gMeme.buttonline.fontColor
     var fontSize = gMeme.buttonline.fontSize
+    var strokeColor = gMeme.buttonline.strokeColor
 
     gCtx.textBaseline = 'middle';
     gCtx.textAlign = 'center';
     gCtx.font = `${fontSize}px monospace`;
     gCtx.fillStyle = fontColor;
+    gCtx.strokeStyle = strokeColor
+    gCtx.strokeText(`${content}`, 200, gMeme.buttonline.height);
+
     gCtx.fillText(`${content}`, 200, gMeme.buttonline.height);
+
 
 }
 
@@ -88,6 +98,13 @@ function onFontColorChange() {
     if (gFocusPos === 'upper') setFontColor(fontColor, 'upper')
     else if (gFocusPos === 'down') setFontColor(fontColor, 'down')
 
+
+}
+
+function onStrokeColorChange() {
+    var strokeColor = document.querySelector('[name=strokeColor]').value
+    console.log('strokeColor:', strokeColor);
+    setStrokeColor(strokeColor)
     getMeme()
 
 }

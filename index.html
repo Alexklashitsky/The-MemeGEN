@@ -67,18 +67,21 @@
                     </div>
                     <div class="icon-box 3 ">
                         impact
-                        <img class="icon" src="icons/text stroke.png">
+                        <img class="icon" src="icons/text stroke.png"><input type="color" class="strokeColor"
+                            name="strokeColor" onchange="onStrokeColorChange()" list='colorList'>
                         <img class="icon" src="icons/paint-board-and-brush.png">
+                        <input type="color" class="color" name="fontColor" onchange="onFontColorChange()"
+                            list='colorList'>
 
                     </div>
 
                     <!-- <label for="first line"> line</label> -->
                     <!-- <label for="color">choose 'font' color</label> -->
-                    <input type="color" class="color" name="fontColor" onchange="onFontColorChange()" list='colorList'>
-                    <div>
+                    <!-- <input type="color" class="color" name="fontColor" onchange="onFontColorChange()" list='colorList'> -->
+                    <!-- <div>
                         <button onclick="onIncrease()">+</button>
                         <button onclick="onDecrease()">-</button>
-                    </div>
+                    </div> -->
                     <div class="currLine">currten line is<span></span></div>
                     <!-- <label for="focus">choose line</label> -->
                     <!-- <select class="focus" name="focus" onchange="onFocusSet()">

@@ -100,6 +100,7 @@ var gMeme = {
     topLine: {
         line: '',
         fontColor: 'white',
+        strokeColor: 'red',
         fontSize: 50,
         textAlign: 'center',
         height: 50,
@@ -107,6 +108,7 @@ var gMeme = {
     buttonline: {
         line: '',
         fontColor: 'white',
+        strokeColor: 'red',
         fontSize: 50,
         textAlign: 'center',
 
@@ -233,6 +235,10 @@ function setTextAlign(pos) {
     if (gFocusPos === 'upper') gMeme.topLine.textAlign = pos
     else if (gFocusPos === 'down') gMeme.buttonline.textAlign = pos
 
+}
+function setStrokeColor(color) {
+    if (gFocusPos === 'upper') gMeme.topLine.strokeColor = color
+    else if (gFocusPos === 'down') gMeme.buttonline.strokeColor = color
 }
 
 
