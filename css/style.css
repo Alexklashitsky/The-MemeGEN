@@ -1,27 +1,40 @@
+
+@import 'mobile.css';
+@import 'tablet.css' screen and (min-width: 550px);
+@import 'desktop.css' screen and (min-width: 1060px);
+
 *{
     box-sizing: border-box;
 }
+
+@font-face {
+    font-family:Capriola ;
+    src: url(/fonts/Capriola,Lato,Montserrat/Capriola/Capriola-Regular.ttf);
+}
+@font-face {
+    font-family: montserrat;
+    src: url(/fonts/Capriola,Lato,Montserrat/Montserrat/Montserrat-Regular.ttf);
+}
 body{
+
+    font-family: Capriola;
     margin: 0;
-    padding-left: 10%;
-    padding-right: 10%;
     
 }
 header{
     height: 130px;
+    color: white;
     background-color: orange;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        
 }
 header  .logo{
-    padding-left: 5%;
+    /* padding-left: 5%; */
+    font-family: Capriola;
+    font-size: 2rem;
+
 }
 
-header nav{
-   
-    padding-right: 5%;
-}
 
 
 
@@ -33,7 +46,7 @@ ul{
 }
 
 li{
-    padding-left: 100px;
+    /* padding-left: 100px; */
     list-style: none;
     
 }
@@ -43,7 +56,7 @@ li{
 }
 .search-bar{
     background-color:white;
-    height: 100px;
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,20 +68,29 @@ li{
     text-align: center;
 }
 footer{
+    display: flex;
+    color: white;
     background-color: orange;
-    height: 135px;
-    text-align: center;
+    
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 footer .logo{
-    /* text-align: center; */
+    font-family: Capriola;
+    font-size: 2rem;
+}
+small{
+    font-size: 1rem;
+    
 }
 .modal{
     display: flex;
     flex-direction: row;
     height: 65vh;
     width: 100%;
-  background-color: indigo;
+  background-color: gray;
   justify-content: space-around;
   align-items: center;
   display: none;
@@ -83,10 +105,15 @@ canvas {
     background-color: #fff;
 }
 .controller{
-    display: block;
-    background-color: seagreen;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
     height: 450px;
     width: 450px;
+    text-align: center;
+    justify-self: center;
+    align-items: center;
     /* margin-top: 10%; */
     
 

@@ -1,0 +1,21 @@
+header{
+    justify-content: space-between;
+        align-items: center;
+        font-size: 1.0rem;
+}
+header  .logo{
+    font-size: 1.7rem;
+}
+
+
+ li{
+    padding-left: 30px;
+}
+
+.search-bar{
+    height: 70px;
+}
+footer{
+
+    height: 100px;
+}

@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+header{
+    justify-content: space-between;
+        align-items: center;
+        font-size: 1.7rem;
+}
+header  .logo{
+    padding-left: 5%;
+    font-size: 2rem;
+}
+header nav{
+   
+    padding-right: 5%;
+}
+li{
+    padding-left: 100px;
+}
+
+.search-bar{
+    height: 100px;
+}
+footer{
+
+    height: 135px;
+}
