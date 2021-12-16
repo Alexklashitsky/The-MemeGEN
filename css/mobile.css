@@ -7,6 +7,10 @@ header{
 }
 header .logo{
     font-size: 1.2rem;
+    padding-left: 10px;
+}
+ul{
+    padding-right: 5px;
 }
 li{
     padding-left: 5px;
