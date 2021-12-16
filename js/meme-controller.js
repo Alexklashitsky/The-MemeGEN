@@ -6,12 +6,13 @@ gCtx = gCanvas.getContext('2d');
 var gFontColor
 var gFontSize
 // var focusedOnTop = true
-var gFocusPos = document.querySelector('[name=focus]').value
+var gFocusPos = 'upper'
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
     // document.querySelector('.modal').style.display = "flex"
     document.querySelector('.modal').style.visibility = "visible"
+    renderCurrLinePos()
 
 }
 function onCloseModal() {
@@ -43,10 +44,10 @@ function renderMeme(gMeme) {
 
     //txt
     gCtx.textBaseline = 'middle';
-    gCtx.textAlign = 'center';
+    gCtx.textAlign = gMeme.topLine.textAlign;
     gCtx.font = `${fontSize}px monospace`;
     gCtx.fillStyle = fontColor;
-    gCtx.fillText(`${content}`, 200, 50);
+    gCtx.fillText(`${content}`, 200, gMeme.topLine.height);
 
 
 }
@@ -61,7 +62,7 @@ function renderDownline(gMeme) {
     gCtx.textAlign = 'center';
     gCtx.font = `${fontSize}px monospace`;
     gCtx.fillStyle = fontColor;
-    gCtx.fillText(`${content}`, 200, 400);
+    gCtx.fillText(`${content}`, 200, gMeme.buttonline.height);
 
 }
 
@@ -100,20 +101,78 @@ function onIncrease() {
 function onDecrease() {
     if (gFocusPos === 'upper') setFontSize('-', 'upper')
     else if (gFocusPos === 'down') setFontSize('-', 'down')
-    console.log('dffdfd');
     getMeme()
 
 }
 
 function onFocusSet() {
-    var currFocus = document.querySelector('[name=focus]').value
+    focusSet()
+    renderCurrLinePos()
+
     // console.log('currFocus:', currFocus);
-    gFocusPos = currFocus
+    // gFocusPos = currFocus
     // if (currFocus === 'upper') {
     //     focusedOnTop = true
     // }
     // else focusedOnTop = false
 }
+
+function onArrowUp() {
+    moveLineUp()
+    getMeme()
+
+}
+function onArrowDown() {
+    moveLineDown()
+    getMeme()
+
+}
+
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+}
+
+
+
+
+// function onLine() {
+
+//     console.log('hi');
+//     gCtx.beginPath(30, 30);
+//     gCtx.lineWidth = 2;
+//     gCtx.moveTo(30, 30);
+//     gCtx.lineTo(70, 70);
+//     gCtx.strokeStyle = 'red';
+//     gCtx.stroke();
+//     gCtx.closePath();
+
+//     getMeme()
+// }
+
+
+function renderCurrLinePos() {
+    const elLine = document.querySelector('.currLine span')
+    console.log('elLine:', elLine);
+    elLine.innerText = ' ' + gFocusPos
+
+
+}
+
+function onTextAlignCenter() {
+    setTextAlign('center')
+    getMeme()
+
+}
+function onTextAlignRight() {
+    setTextAlign('right')
+    getMeme()
+}
+function onTextAlignLeft() {
+    setTextAlign('left')
+    getMeme()
+}
+
 // function onType() {
 //     var currKey = document.querySelector('[name=upperLine]').value
 //     gUpperLine += currKey

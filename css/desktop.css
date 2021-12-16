@@ -44,3 +44,18 @@ footer{
     height: 450px;
     width: 450px;
 }
+
+.canvas-container{
+    height: 450px;
+    width: 450px;
+  display: flex;
+  justify-content: center;
+}
+
+#my-canvas{
+    height: 100%;
+    width: 100%;
+}
+.footer-buttons{
+    padding-top: 50%;
+}

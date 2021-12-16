@@ -50,4 +50,7 @@ footer{
     width: 300px;
     justify-content: flex-end;
 }
+.footer-buttons{
+    padding-top: 0;
+}
 

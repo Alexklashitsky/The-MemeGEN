@@ -100,12 +100,17 @@ var gMeme = {
     topLine: {
         line: '',
         fontColor: 'white',
-        fontSize: 50
+        fontSize: 50,
+        textAlign: 'center',
+        height: 50,
     },
     buttonline: {
         line: '',
         fontColor: 'white',
         fontSize: 50,
+        textAlign: 'center',
+
+        height: 400,
     }
 
 }
@@ -170,8 +175,66 @@ function setFontSize(sigh, pos) {
     }
 }
 
+function moveLineUp() {
+    if (gFocusPos === 'upper') {
+        var currHeigh = gMeme.topLine.height
+        currHeigh -= 2
+        gMeme.topLine.height = currHeigh
+        console.log('vd');
+        console.log('currHeigh:', currHeigh);
+    }
+    else if (gFocusPos === 'down') {
+        var currHeigh = gMeme.buttonline.height
+        currHeigh -= 2
+        gMeme.buttonline.height = currHeigh
+        console.log('vd');
+        console.log('currHeigh:', currHeigh);
+    }
+
+}
+function moveLineDown() {
+    if (gFocusPos === 'upper') {
+        var currHeigh = gMeme.topLine.height
+        currHeigh += 2
+        gMeme.topLine.height = currHeigh
+        console.log('vd');
+        console.log('currHeigh:', currHeigh);
+
+    }
+    else if (gFocusPos === 'down') {
+        var currHeigh = gMeme.buttonline.height
+        currHeigh += 2
+        gMeme.buttonline.height = currHeigh
+        console.log('vd');
+        console.log('currHeigh:', currHeigh);
+
+    }
+}
+
+
 function restLines() {
     gMeme.topLine.line = ''
     gMeme.buttonline.line = ''
+    gMeme.topLine.height = 50
+    gMeme.buttonline.height = 50
+}
+
+
+function focusSet() {
+    const focusPoints = ['upper', 'down']
+
+    var idx = focusPoints.findIndex(currFocusPoint => currFocusPoint === gFocusPos)
+    if (idx === focusPoints.length - 1) gFocusPos = focusPoints[0]
+    else gFocusPos = focusPoints[idx + 1]
+    console.log('gFocusPos:', gFocusPos);
+    console.log('idx:', idx);
+}
+function setTextAlign(pos) {
+    if (gFocusPos === 'upper') gMeme.topLine.textAlign = pos
+    else if (gFocusPos === 'down') gMeme.buttonline.textAlign = pos
 
 }
+
+
+
+
