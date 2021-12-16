@@ -190,6 +190,10 @@ function onTextAlignLeft() {
     getMeme()
 }
 
+function onSetFont() {
+
+}
+
 // function onType() {
 //     var currKey = document.querySelector('[name=upperLine]').value
 //     gUpperLine += currKey
