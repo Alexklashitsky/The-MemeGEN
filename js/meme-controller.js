@@ -97,6 +97,8 @@ function onFontColorChange() {
     var fontColor = document.querySelector('[name=fontColor]').value
     if (gFocusPos === 'upper') setFontColor(fontColor, 'upper')
     else if (gFocusPos === 'down') setFontColor(fontColor, 'down')
+    getMeme()
+
 
 
 }
