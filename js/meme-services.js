@@ -97,13 +97,16 @@ var gImgs = [
 ]
 var gMeme = {
     pic: '',
-    line1: '',
-    fontColor: 'white',
-    fontSize: 50,
-    line2: '',
-    fontColorDown: 'white',
-    fontSizeDown: 50
-
+    topLine: {
+        line: '',
+        fontColor: 'white',
+        fontSize: 50
+    },
+    buttonline: {
+        line: '',
+        fontColor: 'white',
+        fontSize: 50,
+    }
 
 }
 
@@ -118,8 +121,8 @@ function getMeme() {
 
 function setLineTxt(text, pos) {
     var line = text
-    if (pos === 'upper') gMeme.line1 = line
-    else gMeme.line2 = line
+    if (pos === 'upper') gMeme.topLine.line = line
+    else gMeme.buttonline.line = line
 
 
 }
@@ -131,36 +134,36 @@ function setImg(num) {
 
 }
 function setFontColor(color, pos) {
-    if (pos === 'upper') gMeme.fontColor = color
-    else gMeme.fontColorDown = color
+    if (pos === 'upper') gMeme.topLine.fontColor = color
+    else gMeme.buttonline.fontColor = color
 
 }
 function setFontSize(sigh, pos) {
     var fontSize
     if (pos === 'upper') {
-        fontSize = gMeme.fontSize
+        fontSize = gMeme.topLine.fontSize
         if (sigh === '+') {
             fontSize += 2
-            gMeme.fontSize = fontSize
+            gMeme.topLine.fontSize = fontSize
 
             console.log('fontSize:', fontSize);
         }
         else if (sigh === '-') {
             fontSize -= 2
-            gMeme.fontSize = fontSize
+            gMeme.topLine.fontSize = fontSize
         }
 
     } else if (pos === 'down') {
-        fontSize = gMeme.fontSizeDown
+        fontSize = gMeme.buttonline.fontSize
         if (sigh === '+') {
             fontSize += 2
-            gMeme.fontSizeDown = fontSize
+            gMeme.buttonline.fontSize = fontSize
 
 
         }
         else if (sigh === '-') {
             fontSize -= 2
-            gMeme.fontSizeDown = fontSize
+            gMeme.buttonline.fontSize = fontSize
         }
 
 
@@ -168,7 +171,7 @@ function setFontSize(sigh, pos) {
 }
 
 function restLines() {
-    gMeme.line1 = ''
-    gMeme.line2 = ''
+    gMeme.topLine.line = ''
+    gMeme.buttonline.line = ''
 
 }

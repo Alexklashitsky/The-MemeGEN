@@ -31,11 +31,11 @@ function onImgClicked(data) {
 
 function renderMeme(gMeme) {
 
-    var content = gMeme.line1
+    var content = gMeme.topLine.line
     var img = gMeme.pic
     var elImg = document.querySelector(`.${img}`);
-    var fontColor = gMeme.fontColor
-    var fontSize = gMeme.fontSize
+    var fontColor = gMeme.topLine.fontColor
+    var fontSize = gMeme.topLine.fontSize
     console.log('elImg:', elImg);
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 
@@ -52,9 +52,9 @@ function renderMeme(gMeme) {
 
 function renderDownline(gMeme) {
 
-    var content = gMeme.line2
-    var fontColor = gMeme.fontColorDown
-    var fontSize = gMeme.fontSizeDown
+    var content = gMeme.buttonline.line
+    var fontColor = gMeme.buttonline.fontColor
+    var fontSize = gMeme.buttonline.fontSize
 
     gCtx.textBaseline = 'middle';
     gCtx.textAlign = 'center';
