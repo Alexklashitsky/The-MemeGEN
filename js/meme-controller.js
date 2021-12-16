@@ -5,7 +5,8 @@ gCanvas = document.querySelector('#my-canvas');
 gCtx = gCanvas.getContext('2d');
 var gFontColor
 var gFontSize
-var focusedOnTop = true
+// var focusedOnTop = true
+var gFocusPos = document.querySelector('[name=focus]').value
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
@@ -69,11 +70,13 @@ function renderDownline(gMeme) {
 function onSave() {
     var line = document.querySelector('[name=line]').value
 
-    if (focusedOnTop) setLineTxt(line, 'upper')
+    if (gFocusPos === 'upper') setLineTxt(line, 'upper')
 
 
-    else setLineTxt(line, 'down')
+    else if (gFocusPos === 'down') setLineTxt(line, 'down')
     document.querySelector('[name=line]').value = ''
+    console.log('focusPos:', gFocusPos);
+
 
     getMeme()
 
@@ -81,22 +84,22 @@ function onSave() {
 
 function onFontColorChange() {
     var fontColor = document.querySelector('[name=fontColor]').value
-    if (focusedOnTop) setFontColor(fontColor, 'upper')
-    else setFontColor(fontColor, 'down')
+    if (gFocusPos === 'upper') setFontColor(fontColor, 'upper')
+    else if (gFocusPos === 'down') setFontColor(fontColor, 'down')
 
     getMeme()
 
 }
 
 function onIncrease() {
-    if (focusedOnTop) setFontSize('+', 'upper')
-    else setFontSize('+', 'down')
+    if (gFocusPos === 'upper') setFontSize('+', 'upper')
+    else if (gFocusPos === 'down') setFontSize('+', 'down')
     getMeme()
 
 }
 function onDecrease() {
-    if (focusedOnTop) setFontSize('-', 'upper')
-    else setFontSize('-', 'down')
+    if (gFocusPos === 'upper') setFontSize('-', 'upper')
+    else if (gFocusPos === 'down') setFontSize('-', 'down')
     console.log('dffdfd');
     getMeme()
 
@@ -105,10 +108,11 @@ function onDecrease() {
 function onFocusSet() {
     var currFocus = document.querySelector('[name=focus]').value
     // console.log('currFocus:', currFocus);
-    if (currFocus === 'upper') {
-        focusedOnTop = true
-    }
-    else focusedOnTop = false
+    gFocusPos = currFocus
+    // if (currFocus === 'upper') {
+    //     focusedOnTop = true
+    // }
+    // else focusedOnTop = false
 }
 // function onType() {
 //     var currKey = document.querySelector('[name=upperLine]').value

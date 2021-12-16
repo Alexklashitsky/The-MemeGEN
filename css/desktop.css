@@ -39,6 +39,8 @@ footer{
     flex-direction: row;
 }
 .controller{
+    justify-content: flex-start;
+    
     height: 450px;
     width: 450px;
 }

@@ -135,7 +135,7 @@ function setImg(num) {
 }
 function setFontColor(color, pos) {
     if (pos === 'upper') gMeme.topLine.fontColor = color
-    else gMeme.buttonline.fontColor = color
+    else if (pos === 'down') gMeme.buttonline.fontColor = color
 
 }
 function setFontSize(sigh, pos) {
