@@ -23,6 +23,10 @@ li{
 .search-bar{
     height: 100px;
 }
+img{
+    width: 400px;
+    height: 400px;
+}
 footer{
 
     height: 135px;
