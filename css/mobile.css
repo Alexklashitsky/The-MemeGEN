@@ -48,5 +48,6 @@ footer{
 .controller{
     height: 200px;
     width: 300px;
+    justify-content: flex-end;
 }
 
