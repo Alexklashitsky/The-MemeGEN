@@ -19,3 +19,11 @@ footer{
 
     height: 100px;
 }
+
+.modal{
+    flex-direction: row;
+}
+.controller{
+height: 450px;
+width: 450px;
+}

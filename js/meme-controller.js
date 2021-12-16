@@ -9,7 +9,9 @@ var focusedOnTop = true
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
-    document.querySelector('.modal').style.display = "flex"
+    // document.querySelector('.modal').style.display = "flex"
+    document.querySelector('.modal').style.visibility = "visible"
+
 }
 function onCloseModal() {
     document.querySelector('.gallery').style.display = "block"
