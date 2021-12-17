@@ -7,6 +7,7 @@ var gFontColor
 var gFontSize
 // var focusedOnTop = true
 var gFocusPos = 'upper'
+var gLeng = 'en'
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
@@ -201,8 +202,10 @@ function onMemeClick(pic) {
 
 function renderCurrLinePos() {
     const elLine = document.querySelector('.currLine span')
-    console.log('elLine:', elLine);
-    elLine.innerText = ' ' + gFocusPos
+    // console.log('elLine:', elLine);
+    if (gFocusPos === 'upper') elLine.innerText = ' ' + '🔼'
+    else if (gFocusPos === 'down') elLine.innerText = ' ' + '🔽'
+
 
 
 }
@@ -228,6 +231,28 @@ function onSetFont() {
     getMeme()
 
 
+
+}
+
+function onChengeLeng() {
+    var elFlag = document.getElementById('flag');
+    console.log('Elflag:', elFlag);
+
+
+
+    console.log('hi');
+    if (gCurrLang === 'en') {
+        gCurrLang = 'he'
+        elFlag.src = "icons/united-kingdom.png"
+        setLang('he')
+        doTrans()
+
+    } else {
+        gCurrLang = 'en'
+        elFlag.src = "icons/israel.png"
+        setLang('en')
+        doTrans()
+    }
 
 }
 

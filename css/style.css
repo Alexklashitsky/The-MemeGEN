@@ -121,7 +121,7 @@ canvas {
     background-color: #fff;
 }
 .controller{
-    border: tomato solid;
+    /* border: tomato solid; */
     color: white;
     display: flex;
     flex-direction: column;
@@ -145,11 +145,17 @@ canvas {
     display: flex;
 }
 .footer-buttons{
-    border: green  solid;
+    /* border: green  solid; */
     display: block;
     
 }
+.currLine{
+    display: inline;
 
+}
+.currLineIs{
+    display: inline;
+}
 /* .btn {
     background: orange;
     border: 1px solid orange;

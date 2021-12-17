@@ -12,25 +12,30 @@
 <body>
 
     <header>
+
         <div class="logo">MemeGen</div>
         <nav>
             <ul>
-                <li onclick="onCloseModal()">
+                <li data-trans="gallery" onclick="onCloseModal()">
                     Gallery
                 </li>
-                <li onclick="renderMems()">
+                <li data-trans="memes" onclick="renderMems()">
                     memes
                 </li>
-                <li>
-                    About
+                <li data-trans="about">
+                    about
                 </li>
+                <img class="icon" id="flag" onclick="onChengeLeng()" src="icons/israel.png">
+
             </ul>
         </nav>
 
     </header>
     <main>
         <div class="continer">
+
             <div class="search-bar">
+
                 <input list="search" placeholder="search">
                 <datalist class="search-items">
 
@@ -91,18 +96,20 @@
                         <button onclick="onIncrease()">+</button>
                         <button onclick="onDecrease()">-</button>
                     </div> -->
-                    <div class="currLine">currten line is<span></span></div>
+                    <div data-trans="currentLine" class="currLineIs"> currten line is </div>
+                    <div class="currLine"><span></span></div>
                     <!-- <label for="focus">choose line</label> -->
                     <!-- <select class="focus" name="focus" onchange="onFocusSet()">
                         <option value="upper">upper</option>
                         <option value="down">down</option> -->
                     </select>
-                    <button onclick="onSave()">save</button>
+                    <button data-trans="save" onclick="onSave()">save</button>
                     <!-- <button onclick="onCloseModal()">close modal</button> -->
                     <div class="footer-buttons">
-                        <button class="btn" onclick="renderCurrLinePos()">share</button>
+                        <button data-trans="share" class="btn" onclick="renderCurrLinePos()">share</button>
                         <!-- <button onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</button> -->
-                        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+                        <a href="#" data-trans="download" class="btn" onclick="downloadImg(this)"
+                            download="my-img.jpg">Download</a>
                     </div>
                 </div>
             </div>
@@ -117,7 +124,7 @@
 
 
 
-
+    <script src="js/trans-services.js"></script>
     <script src="js/storge services.js"></script>
     <script src="js/util.js"></script>
     <script src="js/meme-controller.js"></script>
