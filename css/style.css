@@ -8,12 +8,26 @@
 }
 
 @font-face {
+    font-family: Oswald;
+    src: url(../fonts/Oswald/);
+}
+@font-face {
+    font-family: david;
+    src: url(../fonts/David_Libre/DavidLibre-Regular.ttf);
+}
+
+@font-face {
+    font-family: impact;
+    src: url(../fonts/impact/Impacted.ttf);
+}
+
+@font-face {
     font-family:Capriola ;
-    src: url(/fonts/Capriola,Lato,Montserrat/Capriola/Capriola-Regular.ttf);
+    src: url(../fonts/Capriola,Lato,Montserrat/Capriola/Capriola-Regular.ttf);
 }
 @font-face {
     font-family: montserrat;
-    src: url(/fonts/Capriola,Lato,Montserrat/Montserrat/Montserrat-Regular.ttf);
+    src: url(.//fonts/Capriola,Lato,Montserrat/Montserrat/Montserrat-Regular.ttf);
 }
 body{
 

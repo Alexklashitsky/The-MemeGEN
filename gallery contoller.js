@@ -23,7 +23,6 @@ function renderMem() {
 
 
 function renderMems() {
-    onCloseModal()
     var memes = getFromStorage()
     console.log('memes:', memes);
     var i = 0
@@ -33,7 +32,7 @@ function renderMems() {
     var strHtml = ''
     memes.map(meme => {
         // strHtml += `<img class="img${i + 1}" data-num=${i + 1} onclick="onImgClicked(this)" src="img/meme-imgs (square)/${i + 1}.jpg">`
-        strHtml += `<img src="" id="pic${i + 1}" alt="fggddddf" />`
+        strHtml += `<img src="" id="pic${i + 1}" data-id="${makeId()}" alt="cool meme" onclick="onMemeClick(this)" />`
 
         i++
     })

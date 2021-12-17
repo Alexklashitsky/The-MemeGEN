@@ -40,14 +40,14 @@ function renderMeme(gMeme) {
     var fontColor = gMeme.topLine.fontColor
     var fontSize = gMeme.topLine.fontSize
     var strokeColor = gMeme.topLine.strokeColor
-    console.log('elImg:', elImg);
+    var font = gMeme.topLine.font
     gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
 
 
     //txt
     gCtx.textBaseline = 'middle';
     gCtx.textAlign = gMeme.topLine.textAlign;
-    gCtx.font = `${fontSize}px monospace`;
+    gCtx.font = `${fontSize}px ${font}`;
     gCtx.fillStyle = fontColor;
     gCtx.strokeStyle = strokeColor
     gCtx.strokeText(`${content}`, 200, gMeme.topLine.height);
@@ -64,10 +64,11 @@ function renderDownline(gMeme) {
     var fontColor = gMeme.buttonline.fontColor
     var fontSize = gMeme.buttonline.fontSize
     var strokeColor = gMeme.buttonline.strokeColor
+    var font = gMeme.buttonline.font
 
     gCtx.textBaseline = 'middle';
     gCtx.textAlign = 'center';
-    gCtx.font = `${fontSize}px monospace`;
+    gCtx.font = `${fontSize}px ${font}`;
     gCtx.fillStyle = fontColor;
     gCtx.strokeStyle = strokeColor
     gCtx.strokeText(`${content}`, 200, gMeme.buttonline.height);
@@ -110,17 +111,15 @@ function onClick() {
         }
     });
     setLineTxt(line)
-    console.log('line:', line);
+
     getMeme()
 
 }
-// console.log('hi');
 
 
 function onFontColorChange() {
     var fontColor = document.querySelector('[name=fontColor]').value
-    if (gFocusPos === 'upper') setFontColor(fontColor, 'upper')
-    else if (gFocusPos === 'down') setFontColor(fontColor, 'down')
+    setFontColor(fontColor)
     getMeme()
 
 
@@ -136,14 +135,14 @@ function onStrokeColorChange() {
 }
 
 function onIncrease() {
-    if (gFocusPos === 'upper') setFontSize('+', 'upper')
-    else if (gFocusPos === 'down') setFontSize('+', 'down')
+    setFontSize('+')
+
     getMeme()
 
 }
 function onDecrease() {
-    if (gFocusPos === 'upper') setFontSize('-', 'upper')
-    else if (gFocusPos === 'down') setFontSize('-', 'down')
+    setFontSize('-')
+
     getMeme()
 
 }
@@ -174,6 +173,12 @@ function onArrowDown() {
 function downloadImg(elLink) {
     var imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
+}
+
+function onMemeClick(pic) {
+    console.log('pic:', pic);
+
+    console.log('hi');
 }
 
 
@@ -217,6 +222,12 @@ function onTextAlignLeft() {
 }
 
 function onSetFont() {
+    var currFont = document.querySelector('[name=font]').value
+    console.log('currFont:', currFont);
+    setFont(currFont)
+    getMeme()
+
+
 
 }
 

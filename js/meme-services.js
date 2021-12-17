@@ -100,6 +100,7 @@ var gMeme = {
     pic: '',
     topLine: {
         line: '',
+        font: 'impact',
         fontColor: 'white',
         strokeColor: 'red',
         fontSize: 50,
@@ -108,11 +109,11 @@ var gMeme = {
     },
     buttonline: {
         line: '',
+        font: 'impact',
         fontColor: 'white',
         strokeColor: 'red',
         fontSize: 50,
         textAlign: 'center',
-
         height: 400,
     }
 
@@ -149,14 +150,14 @@ function setImg(num) {
 
 
 }
-function setFontColor(color, pos) {
-    if (pos === 'upper') gMeme.topLine.fontColor = color
-    else if (pos === 'down') gMeme.buttonline.fontColor = color
+function setFontColor(color) {
+    if (gFocusPos === 'upper') gMeme.topLine.fontColor = color
+    else if (gFocusPos === 'down') gMeme.buttonline.fontColor = color
 
 }
-function setFontSize(sigh, pos) {
+function setFontSize(sigh) {
     var fontSize
-    if (pos === 'upper') {
+    if (gFocusPos === 'upper') {
         fontSize = gMeme.topLine.fontSize
         if (sigh === '+') {
             fontSize += 2
@@ -169,7 +170,7 @@ function setFontSize(sigh, pos) {
             gMeme.topLine.fontSize = fontSize
         }
 
-    } else if (pos === 'down') {
+    } else if (gFocusPos === 'down') {
         fontSize = gMeme.buttonline.fontSize
         if (sigh === '+') {
             fontSize += 2
@@ -248,6 +249,14 @@ function setTextAlign(pos) {
 function setStrokeColor(color) {
     if (gFocusPos === 'upper') gMeme.topLine.strokeColor = color
     else if (gFocusPos === 'down') gMeme.buttonline.strokeColor = color
+}
+function setFont(font) {
+    if (gFocusPos === 'upper') gMeme.topLine.font = font
+
+    else if (gFocusPos === 'down') { gMeme.buttonline.font = font }
+    console.log('gMeme.topLine.font:', gMeme.topLine.font);
+
+
 }
 
 function saveMeme() {
