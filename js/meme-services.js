@@ -1,5 +1,5 @@
 'use strict'
-
+const key = 'MEMEdb'
 var gImgs = [
     {
         id: 1,
@@ -96,6 +96,7 @@ var gImgs = [
 
 ]
 var gMeme = {
+    id: makeId(),
     pic: '',
     topLine: {
         line: '',
@@ -248,6 +249,42 @@ function setStrokeColor(color) {
     if (gFocusPos === 'upper') gMeme.topLine.strokeColor = color
     else if (gFocusPos === 'down') gMeme.buttonline.strokeColor = color
 }
+
+function saveMeme() {
+    var memeImage = document.getElementById('my-canvas');
+    var imgData = getBase64Image(memeImage);
+    var memes = []
+    memes = loadFromStorage(key)
+    if (memes === null) {
+        memes = []
+        memes.push(imgData)
+        saveToStorage(key, memes)
+    }
+    else {
+        memes.push(imgData)
+        saveToStorage(key, memes)
+
+        // var memeImage = document.getElementById('my-canvas');
+        // var imgData = getBase64Image(memeImage);
+        // localStorage.setItem("imgData", imgData);
+        // // var memes = []
+        // // memes = loadFromStorage(key)
+
+        // if (memes === null) {
+        //     memes = []
+        //     memes.push(gMeme)
+        //     saveToStorage(key, memes)
+        // } else {
+        //     memes.push(gMeme)
+        //     saveToStorage(key, memes)
+
+
+    }
+}
+function getFromStorage() {
+    return loadFromStorage(key)
+}
+
 
 
 

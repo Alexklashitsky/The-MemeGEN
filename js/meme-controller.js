@@ -77,21 +77,21 @@ function renderDownline(gMeme) {
 
 }
 
+// function onSave() {
+//     var line = document.querySelector('[name=line]').value
 
+//     if (gFocusPos === 'upper') setLineTxt(line, 'upper')
+
+//     else if (gFocusPos === 'down') setLineTxt(line, 'down')
+//     document.querySelector('[name=line]').value = ''
+//     console.log('focusPos:', gFocusPos);
+
+//     getMeme()
+
+// }
 
 function onSave() {
-    var line = document.querySelector('[name=line]').value
-
-    if (gFocusPos === 'upper') setLineTxt(line, 'upper')
-
-
-    else if (gFocusPos === 'down') setLineTxt(line, 'down')
-    document.querySelector('[name=line]').value = ''
-    console.log('focusPos:', gFocusPos);
-
-
-    getMeme()
-
+    saveMeme()
 }
 
 
