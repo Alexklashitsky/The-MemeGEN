@@ -17,8 +17,9 @@ function onOpenModal() {
 }
 function onCloseModal() {
     document.querySelector('.gallery').style.display = "block"
-    document.querySelector('.modal').style.display = "none"
+    document.querySelector('.modal').style.visibility = "hidden"
     restLines()
+    renderGallery()
 }
 
 function onImgClicked(data) {
@@ -92,6 +93,29 @@ function onSave() {
     getMeme()
 
 }
+
+
+function onClick() {
+    var elImput = document.querySelector('.line')
+    var line = document.querySelector('[name=line]').value
+    elImput.addEventListener('keydown', function (event) {
+        const key = event.key;
+        if (key === "Backspace") {
+            line = line.substring(0, line.length - 1);
+            // alert(key);
+            console.log('line:', line);
+            setLineTxt(line)
+            getMeme()
+            return false;
+        }
+    });
+    setLineTxt(line)
+    console.log('line:', line);
+    getMeme()
+
+}
+// console.log('hi');
+
 
 function onFontColorChange() {
     var fontColor = document.querySelector('[name=fontColor]').value

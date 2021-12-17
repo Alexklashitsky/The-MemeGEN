@@ -125,14 +125,22 @@ function getMeme() {
     renderMeme(gMeme)
     renderDownline(gMeme)
 }
+function setLineTxt(txt) {
+    var line = txt
+    if (gFocusPos === 'upper') gMeme.topLine.line = line
+    else if (gFocusPos === 'down') gMeme.buttonline.line = line
 
-function setLineTxt(text, pos) {
-    var line = text
-    if (pos === 'upper') gMeme.topLine.line = line
-    else gMeme.buttonline.line = line
+
 
 
 }
+// function setLineTxt(text, pos) {
+//     var line = text
+//     if (pos === 'upper') gMeme.topLine.line = line
+//     else gMeme.buttonline.line = line
+
+
+// }
 function setImg(num) {
     gMeme.pic = 'img' + num
     console.log('num:', num);
