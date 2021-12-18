@@ -13,6 +13,7 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 function init() {
     getGallery()
     addListeners()
+    createMap()
 }
 function addListeners() {
     addMouseListeners()
@@ -298,4 +299,8 @@ function onStrokeColor() {
 }
 function onFontColor() {
     document.querySelector('.color').click()
+}
+function onSearch() {
+    var searchWord = document.querySelector('.search').value
+    doSearch(searchWord)
 }

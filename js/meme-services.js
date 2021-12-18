@@ -1,96 +1,99 @@
 'use strict'
 const key = 'MEMEdb'
+var gMapOfSearch
+var gSearchKes
+var gIsMiddleLineActive = false
 var gImgs = [
     {
         id: 1,
         url: 'img/meme-imgs (square)/1.jpg',
-        keyword: ['trump',]
+        keyword: ['trump', 'politician', 'Vulgar']
     },
 
     {
         id: 2,
         url: 'img/meme-imgs (square)/2.jpg',
-        keyword: []
+        keyword: ['dogs', 'cute', 'couple', 'Labrador']
     },
     {
         id: 3,
         url: 'img/meme-imgs (square)/3.jpg',
-        keyword: []
+        keyword: ['dogs', 'cute', 'couple', 'baby']
     },
     {
         id: 4,
         url: 'img/meme-imgs (square)/4.jpg',
-        keyword: []
+        keyword: ['cat', 'sleep', 'relax']
     },
     {
         id: 5,
         url: 'img/meme-imgs (square)/5.jpg',
-        keyword: []
+        keyword: ['boy', 'strong', 'respect']
     },
     {
         id: 6,
         url: 'img/meme-imgs (square)/6.jpg',
-        keyword: []
+        keyword: ['crazy', 'alien']
     },
     {
         id: 7,
         url: 'img/meme-imgs (square)/7.jpg',
-        keyword: []
+        keyword: ['boy', 'baby', 'surprise']
     },
     {
         id: 8,
         url: 'img/meme-imgs (square)/8.jpg',
-        keyword: []
+        keyword: ['Condescending Wonka', 'wonka', 'crazy']
     },
     {
         id: 9,
         url: 'img/meme-imgs (square)/9.jpg',
-        keyword: []
+        keyword: ['funny', 'baby', 'Laughter']
     },
     {
         id: 10,
         url: 'img/meme-imgs (square)/10.jpg',
-        keyword: []
+        keyword: ['obama', 'laugh', 'politician']
     },
     {
         id: 11,
         url: 'img/meme-imgs (square)/11.jpg',
-        keyword: []
+        keyword: ['boxer', 'hug', 'gay']
     },
     {
         id: 12,
         url: 'img/meme-imgs (square)/12.jpg',
-        keyword: []
+        keyword: ['haim', 'i told yos so', 'righteous']
     },
     {
         id: 13,
         url: 'img/meme-imgs (square)/13.jpg',
-        keyword: []
+        keyword: ['leonardo', 'celebrant', 'champagne', 'actor']
     },
     {
         id: 14,
         url: 'img/meme-imgs (square)/14.jpg',
-        keyword: []
+        keyword: ['actor', 'matrix', 'Morpheus']
     },
     {
         id: 15,
         url: 'img/meme-imgs (square)/15.jpg',
-        keyword: []
+        keyword: ['actor', 'Sean Bean', 'funny']
     },
     {
         id: 16,
         url: 'img/meme-imgs (square)/16.jpg',
-        keyword: []
+        keyword: ['actor', 'picard', 'star-track']
     },
     {
         id: 17,
         url: 'img/meme-imgs (square)/17.jpg',
-        keyword: []
+        keyword: ['politician', 'putin', 'scary']
     },
     {
         id: 18,
         url: 'img/meme-imgs (square)/18.jpg',
-        keyword: [],
+        keyword: ['toy', 'cartoon'],
     }
 
 
@@ -128,7 +131,37 @@ var gMeme = {
     }
 
 }
-var gIsMiddleLineActive = false
+
+
+
+function createMap() {
+    var keyWords = []
+    for (var i = 0; i < gImgs.length; i++) {
+        keyWords = keyWords.concat(gImgs[i].keyword)
+    }
+    console.log('keyWords:', keyWords);
+
+    var search = keyWords.reduce(function (acc, word) {
+        // console.log('Called with ', acc, vote);
+        if (!acc[word]) acc[word] = 0;
+        acc[word]++
+        return acc;
+    }, {})
+
+    console.log('search:', search);
+    gMapOfSearch = search
+    gSearchKes = Object.keys(gMapOfSearch)
+
+
+}
+
+function doSearch(searchWord) {
+    var imgs = gImgs.filter(img =>
+        img.keyword.includes(searchWord))
+    renderGallery(imgs)
+
+}
+
 function getGallery() {
     var imgs = [...gImgs]
     renderGallery(imgs)
@@ -156,7 +189,6 @@ function setLineTxt(txt) {
 }
 function addLine() {
 
-    console.log('gIsMiddleLineActive:', gIsMiddleLineActive);
 
     if (!gIsMiddleLineActive && gFocusPos === 'upper') {
         gFocusPos = 'down'

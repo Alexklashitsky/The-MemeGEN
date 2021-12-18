@@ -212,3 +212,6 @@ align-items: flex-end
 .color{
     display: none;
 }
+.search{
+    width: 90px;
+}
