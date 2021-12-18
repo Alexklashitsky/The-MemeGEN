@@ -131,9 +131,6 @@ var gMeme = {
     }
 
 }
-
-
-
 function createMap() {
     var keyWords = []
     for (var i = 0; i < gImgs.length; i++) {
@@ -154,14 +151,12 @@ function createMap() {
 
 
 }
-
 function doSearch(searchWord) {
     var imgs = gImgs.filter(img =>
         img.keyword.includes(searchWord))
     renderGallery(imgs)
 
 }
-
 function getGallery() {
     var imgs = [...gImgs]
     renderGallery(imgs)
@@ -170,8 +165,6 @@ function getGallery() {
 
 }
 function getMeme() {
-    // var pic = gMeme.pic
-    // var line = gMeme.line1
     renderMeme(gMeme)
     renderDownline(gMeme)
     renderMiddleLine(gMeme)
@@ -188,8 +181,6 @@ function setLineTxt(txt) {
 
 }
 function addLine() {
-
-
     if (!gIsMiddleLineActive && gFocusPos === 'upper') {
         gFocusPos = 'down'
         renderCurrLinePos()

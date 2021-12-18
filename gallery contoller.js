@@ -1,6 +1,5 @@
 'use strict'
 const gNumOfImg = 18
-
 function renderGallery(imgs) {
     var elGallery = document.querySelector('.gallery')
     var strHtml = ''

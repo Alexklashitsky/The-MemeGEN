@@ -19,13 +19,11 @@ function addListeners() {
     addMouseListeners()
     addTouchListeners()
 }
-
 function addMouseListeners() {
     gCanvas.addEventListener('mousemove', onMove)
     gCanvas.addEventListener('mousedown', onDown)
     gCanvas.addEventListener('mouseup', onUp)
 }
-
 function addTouchListeners() {
     gCanvas.addEventListener('touchmove', onMove)
     gCanvas.addEventListener('touchstart', onDown)
@@ -137,7 +135,6 @@ function renderDownline(gMeme) {
     gCtx.fillText(`${content}`, 200, gMeme.buttonline.height);
 }
 function renderMiddleLine(gMeme) {
-    // if (!isMiddleLineActive) return
     console.log('hi');
     var content = gMeme.middleLine.line
     var fontColor = gMeme.middleLine.fontColor
@@ -156,7 +153,6 @@ function renderMiddleLine(gMeme) {
 }
 function renderCurrLine(line) {
     document.querySelector('[name=line]').value = line
-
 }
 function onSave() {
     saveMeme()
@@ -202,15 +198,11 @@ function onStrokeColorChange() {
 }
 function onIncrease() {
     setFontSize('+')
-
     getMeme()
-
 }
 function onDecrease() {
     setFontSize('-')
-
     getMeme()
-
 }
 function onFocusSet() {
     focusSet()
@@ -219,7 +211,6 @@ function onFocusSet() {
 function onArrowUp() {
     moveLineUp()
     getMeme()
-
 }
 function onArrowDown() {
     moveLineDown()
@@ -231,7 +222,6 @@ function downloadImg(elLink) {
 }
 function onMemeClick(pic) {
     console.log('pic:', pic);
-
     console.log('hi');
 }
 function renderCurrLinePos() {
@@ -303,4 +293,7 @@ function onFontColor() {
 function onSearch() {
     var searchWord = document.querySelector('.search').value
     doSearch(searchWord)
+    searchWord = ''
+    // onCloseModal()
+
 }

@@ -37,7 +37,6 @@ const gTrans = {
         he: 'תחתונה',
     },
 }
-
 const DEFAULT_LANG = 'en'
 var gCurrLang = DEFAULT_LANG;
 function getTrans(transKey) {
@@ -47,7 +46,6 @@ function getTrans(transKey) {
     if (!word) return tranLangsMap[DEFAULT_LANG]
     return word;
 }
-
 function doTrans() {
 
     var els = document.querySelectorAll('[data-trans]')
@@ -57,7 +55,6 @@ function doTrans() {
         el.innerText = getTrans(transKey)
     })
 }
-
 function setLang(lang) {
     gCurrLang = lang;
 }
