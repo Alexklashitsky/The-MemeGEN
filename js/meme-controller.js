@@ -317,6 +317,12 @@ function renderCurrLinePos() {
 
 }
 
+function onAbout() {
+    var test = document.querySelector('.gallery')
+    onCloseModal()
+    test.innerText = makeLorem(400)
+}
+
 function onTextAlignCenter() {
     setTextAlign('center')
     getMeme()

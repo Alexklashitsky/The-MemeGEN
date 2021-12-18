@@ -152,7 +152,11 @@ canvas {
 .currLine{
     display: inline;
 
+    
 }
+
+
+
 .currLineIs{
     display: inline;
 }
@@ -198,5 +202,15 @@ align-items: flex-end
   .file-input{
       visibility: hidden;
   }
+  li:hover{
+    color: gainsboro;
+    cursor: pointer;
+    }
+.btn:hover{
+    color: gainsboro;
+}
+.icon:hover{
+    cursor: pointer;
+}
 
   
