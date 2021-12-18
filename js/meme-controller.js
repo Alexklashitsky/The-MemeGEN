@@ -5,13 +5,17 @@ gCanvas = document.querySelector('#my-canvas');
 gCtx = gCanvas.getContext('2d');
 var gFontColor
 var gFontSize
-// var focusedOnTop = true
 var gFocusPos = 'upper'
 var gLeng = 'en'
+var isMiddleLineActive = false
+
+function init() {
+    renderGallery()
+
+}
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
-    // document.querySelector('.modal').style.display = "flex"
     document.querySelector('.modal').style.visibility = "visible"
     renderCurrLinePos()
 
@@ -60,7 +64,6 @@ function renderMeme(gMeme) {
 }
 
 function renderDownline(gMeme) {
-
     var content = gMeme.buttonline.line
     var fontColor = gMeme.buttonline.fontColor
     var fontSize = gMeme.buttonline.fontSize
@@ -75,8 +78,24 @@ function renderDownline(gMeme) {
     gCtx.strokeText(`${content}`, 200, gMeme.buttonline.height);
 
     gCtx.fillText(`${content}`, 200, gMeme.buttonline.height);
+}
+function renderMiddleLine(gMeme) {
+    // if (!isMiddleLineActive) return
+    console.log('hi');
+    var content = gMeme.middleLine.line
+    var fontColor = gMeme.middleLine.fontColor
+    var fontSize = gMeme.middleLine.fontSize
+    var strokeColor = gMeme.middleLine.strokeColor
+    var font = gMeme.middleLine.font
 
+    gCtx.textBaseline = 'middle';
+    gCtx.textAlign = 'center';
+    gCtx.font = `${fontSize}px ${font}`;
+    gCtx.fillStyle = fontColor;
+    gCtx.strokeStyle = strokeColor
+    gCtx.strokeText(`${content}`, 200, gMeme.middleLine.height);
 
+    gCtx.fillText(`${content}`, 200, gMeme.middleLine.height);
 }
 
 // function onSave() {
@@ -116,8 +135,16 @@ function onClick() {
     getMeme()
 
 }
+function onAddLine() {
 
 
+    addLine()
+}
+
+function onDeleteLine() {
+    deleteLine()
+    getMeme()
+}
 function onFontColorChange() {
     var fontColor = document.querySelector('[name=fontColor]').value
     setFontColor(fontColor)
@@ -204,6 +231,7 @@ function renderCurrLinePos() {
     const elLine = document.querySelector('.currLine span')
     // console.log('elLine:', elLine);
     if (gFocusPos === 'upper') elLine.innerText = ' ' + '🔼'
+    else if (gFocusPos === 'middle') elLine.innerText = ' ' + '◀️'
     else if (gFocusPos === 'down') elLine.innerText = ' ' + '🔽'
 
 
@@ -244,6 +272,7 @@ function onChengeLeng() {
     if (gCurrLang === 'en') {
         gCurrLang = 'he'
         elFlag.src = "icons/united-kingdom.png"
+        document.body.classList.add('rtl')
         setLang('he')
         doTrans()
 
@@ -251,6 +280,7 @@ function onChengeLeng() {
         gCurrLang = 'en'
         elFlag.src = "icons/israel.png"
         setLang('en')
+        document.body.classList.remove('rtl')
         doTrans()
     }
 

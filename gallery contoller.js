@@ -2,7 +2,7 @@
 const gNumOfImg = 18
 
 
-renderGallery()
+
 
 
 function renderGallery() {

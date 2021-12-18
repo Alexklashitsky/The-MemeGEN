@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body onload="init()">
 
     <header>
 
@@ -59,8 +59,8 @@
                         <img class="icon" onclick="onArrowDown()" src="icons/down-chevron.png">
                         <img class="icon" onclick="onFocusSet()"
                             src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
-                        <img class="icon" src="icons/add.png">
-                        <img class="icon" src="icons/trash.png">
+                        <img class="icon" onclick="onAddLine()" src="icons/add.png">
+                        <img class="icon" onclick="onDeleteLine()" src="icons/trash.png">
 
                     </div>
                     <div class="icon-box 2 ">
@@ -103,9 +103,10 @@
                         <option value="upper">upper</option>
                         <option value="down">down</option> -->
                     </select>
-                    <button data-trans="save" onclick="onSave()">save</button>
+                    <!-- <button data-trans="save" onclick="onSave()">save</button> -->
                     <!-- <button onclick="onCloseModal()">close modal</button> -->
                     <div class="footer-buttons">
+                        <button data-trans="share" class="btn" onclick="onSave()">save</button>
                         <button data-trans="share" class="btn" onclick="renderCurrLinePos()">share</button>
                         <!-- <button onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</button> -->
                         <a href="#" data-trans="download" class="btn" onclick="downloadImg(this)"

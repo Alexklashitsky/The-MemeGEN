@@ -107,6 +107,16 @@ var gMeme = {
         textAlign: 'center',
         height: 50,
     },
+    middleLine: {
+        line: '',
+        font: 'impact',
+        fontColor: 'white',
+        strokeColor: 'red',
+        fontSize: 50,
+        textAlign: 'center',
+        height: 200,
+    },
+
     buttonline: {
         line: '',
         font: 'impact',
@@ -118,31 +128,51 @@ var gMeme = {
     }
 
 }
+var gIsMiddleLineActive = false
 
-// getMeme()
 
 function getMeme() {
     // var pic = gMeme.pic
     // var line = gMeme.line1
     renderMeme(gMeme)
     renderDownline(gMeme)
+    renderMiddleLine(gMeme)
 }
 function setLineTxt(txt) {
     var line = txt
     if (gFocusPos === 'upper') gMeme.topLine.line = line
     else if (gFocusPos === 'down') gMeme.buttonline.line = line
+    else if (gFocusPos === 'middle') gMeme.middleLine.line = line
 
 
 
 
 }
-// function setLineTxt(text, pos) {
-//     var line = text
-//     if (pos === 'upper') gMeme.topLine.line = line
-//     else gMeme.buttonline.line = line
+function addLine() {
 
+    console.log('gIsMiddleLineActive:', gIsMiddleLineActive);
 
-// }
+    if (!gIsMiddleLineActive && gFocusPos === 'upper') {
+        gFocusPos = 'down'
+        renderCurrLinePos()
+    }
+    else if (!gIsMiddleLineActive && gFocusPos === 'down') {
+        gIsMiddleLineActive = true
+        gFocusPos = 'middle'
+        renderCurrLinePos()
+
+    }
+}
+function deleteLine() {
+    console.log('hi');
+    if (gFocusPos === 'upper') gMeme.topLine.line = ''
+    else if (gFocusPos === 'down') gMeme.buttonline.line = ''
+    else if (gFocusPos === 'middle') {
+        gMeme.middleLine.line = ''
+        gIsMiddleLineActive = false
+    }
+
+}
 function setImg(num) {
     gMeme.pic = 'img' + num
     console.log('num:', num);
@@ -153,6 +183,7 @@ function setImg(num) {
 function setFontColor(color) {
     if (gFocusPos === 'upper') gMeme.topLine.fontColor = color
     else if (gFocusPos === 'down') gMeme.buttonline.fontColor = color
+    else if (gFocusPos === 'middle') gMeme.middleLine.fontColor = color
 
 }
 function setFontSize(sigh) {
@@ -185,6 +216,20 @@ function setFontSize(sigh) {
 
 
     }
+    else if (gFocusPos === 'middle') {
+        fontSize = gMeme.middleLine.fontSize
+        if (sigh === '+') {
+            fontSize += 2
+            gMeme.middleLine.fontSize = fontSize
+
+
+        }
+        else if (sigh === '-') {
+            fontSize -= 2
+            gMeme.middleLine.fontSize = fontSize
+        }
+
+    }
 }
 
 function moveLineUp() {
@@ -192,15 +237,17 @@ function moveLineUp() {
         var currHeigh = gMeme.topLine.height
         currHeigh -= 2
         gMeme.topLine.height = currHeigh
-        console.log('vd');
-        console.log('currHeigh:', currHeigh);
     }
     else if (gFocusPos === 'down') {
         var currHeigh = gMeme.buttonline.height
         currHeigh -= 2
         gMeme.buttonline.height = currHeigh
-        console.log('vd');
-        console.log('currHeigh:', currHeigh);
+    }
+    else if (gFocusPos === 'middle') {
+        var currHeigh = gMeme.middleLine.height
+        currHeigh -= 2
+        gMeme.middleLine.height = currHeigh
+
     }
 
 }
@@ -221,6 +268,13 @@ function moveLineDown() {
         console.log('currHeigh:', currHeigh);
 
     }
+    else if (gFocusPos === 'middle') {
+        var currHeigh = gMeme.middleLine.height
+        currHeigh += 2
+        gMeme.middleLine.height = currHeigh
+
+    }
+
 }
 
 
@@ -233,8 +287,18 @@ function restLines() {
 
 
 function focusSet() {
-    const focusPoints = ['upper', 'down']
 
+    if (gIsMiddleLineActive) {
+        var focusPoints = ['upper', 'middle', 'down']
+        changeFocus(focusPoints)
+    } else {
+        var focusPoints = ['upper', 'down']
+        changeFocus(focusPoints)
+    }
+
+}
+
+function changeFocus(focusPoints) {
     var idx = focusPoints.findIndex(currFocusPoint => currFocusPoint === gFocusPos)
     if (idx === focusPoints.length - 1) gFocusPos = focusPoints[0]
     else gFocusPos = focusPoints[idx + 1]
@@ -244,16 +308,19 @@ function focusSet() {
 function setTextAlign(pos) {
     if (gFocusPos === 'upper') gMeme.topLine.textAlign = pos
     else if (gFocusPos === 'down') gMeme.buttonline.textAlign = pos
+    else if (gFocusPos === 'middle') gMeme.middleLine.textAlign = pos
 
 }
 function setStrokeColor(color) {
     if (gFocusPos === 'upper') gMeme.topLine.strokeColor = color
     else if (gFocusPos === 'down') gMeme.buttonline.strokeColor = color
+    else if (gFocusPos === 'middle') gMeme.middleLine.strokeColor = color
 }
 function setFont(font) {
     if (gFocusPos === 'upper') gMeme.topLine.font = font
 
-    else if (gFocusPos === 'down') { gMeme.buttonline.font = font }
+    else if (gFocusPos === 'down') gMeme.buttonline.font = font
+    else if (gFocusPos === 'middle') gMeme.middleLine.font = font
     console.log('gMeme.topLine.font:', gMeme.topLine.font);
 
 
