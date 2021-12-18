@@ -8,11 +8,85 @@ var gFontSize
 var gFocusPos = 'upper'
 var gLeng = 'en'
 var isMiddleLineActive = false
+const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function init() {
     renderGallery()
+    addListeners()
+}
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+}
+
+function addMouseListeners() {
+    gCanvas.addEventListener('mousemove', onMove)
+    gCanvas.addEventListener('mousedown', onDown)
+    gCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gCanvas.addEventListener('touchmove', onMove)
+    gCanvas.addEventListener('touchstart', onDown)
+    gCanvas.addEventListener('touchend', onUp)
+}
+function onDown(ev) {
+    const pos = getEvPos(ev)
+}
+function onMove(ev) {
+}
+function onUp() {
+}
+function getEvPos(ev) {
+    var pos = {
+        x: ev.offsetX,
+        y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            x: ev.pageX - ev.target.offsetLeft,
+            y: ev.pageY - ev.target.offsetTop
+        }
+    }
+    return pos
+}
+
+
+
+function onUpLoad() {
+    document.querySelector('.file-input').click()
 
 }
+
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
+
+function loadImageFromInput(ev, onImageReady) {
+    document.querySelector('.myCanvas').innerHTML = ''
+    var reader = new FileReader()
+
+    reader.onload = (event) => {
+        console.log('onload');
+        var img = new Image()
+        // Render on canvas
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+    }
+    console.log('after');
+    reader.readAsDataURL(ev.target.files[0])
+}
+
+
+function renderImg(img) {
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+}
+
+
+
+
 
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
@@ -96,6 +170,11 @@ function renderMiddleLine(gMeme) {
     gCtx.strokeText(`${content}`, 200, gMeme.middleLine.height);
 
     gCtx.fillText(`${content}`, 200, gMeme.middleLine.height);
+}
+
+function renderCurrLine(line) {
+    document.querySelector('[name=line]').value = line
+
 }
 
 // function onSave() {

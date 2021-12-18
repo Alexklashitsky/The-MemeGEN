@@ -137,6 +137,7 @@ function getMeme() {
     renderMeme(gMeme)
     renderDownline(gMeme)
     renderMiddleLine(gMeme)
+    getCurrLine()
 }
 function setLineTxt(txt) {
     var line = txt
@@ -162,6 +163,13 @@ function addLine() {
         renderCurrLinePos()
 
     }
+}
+function getCurrLine() {
+    var line
+    if (gFocusPos === 'upper') line = gMeme.topLine.line
+    else if (gFocusPos === 'down') line = gMeme.buttonline.line
+    else if (gFocusPos === 'middle') line = gMeme.middleLine.line
+    renderCurrLine(line)
 }
 function deleteLine() {
     console.log('hi');

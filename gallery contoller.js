@@ -16,6 +16,7 @@ function renderGallery() {
 
 
 function renderMem() {
+
     var dataImage = localStorage.getItem('imgData');
     var bannerImg = document.getElementById('tableBanner');
     bannerImg.src = "data:image/png;base64," + dataImage;
@@ -23,6 +24,7 @@ function renderMem() {
 
 
 function renderMems() {
+    onCloseModal()
     var memes = getFromStorage()
     console.log('memes:', memes);
     var i = 0

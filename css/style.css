@@ -195,5 +195,8 @@ align-items: flex-end
 .rtl{
     direction: rtl;
   }
+  .file-input{
+      visibility: hidden;
+  }
 
   
