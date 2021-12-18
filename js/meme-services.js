@@ -4,7 +4,7 @@ var gImgs = [
     {
         id: 1,
         url: 'img/meme-imgs (square)/1.jpg',
-        keyword: []
+        keyword: ['trump',]
     },
 
     {
@@ -129,8 +129,13 @@ var gMeme = {
 
 }
 var gIsMiddleLineActive = false
+function getGallery() {
+    var imgs = [...gImgs]
+    renderGallery(imgs)
 
 
+
+}
 function getMeme() {
     // var pic = gMeme.pic
     // var line = gMeme.line1
@@ -239,7 +244,6 @@ function setFontSize(sigh) {
 
     }
 }
-
 function moveLineUp() {
     if (gFocusPos === 'upper') {
         var currHeigh = gMeme.topLine.height
@@ -284,16 +288,12 @@ function moveLineDown() {
     }
 
 }
-
-
 function restLines() {
     gMeme.topLine.line = ''
     gMeme.buttonline.line = ''
     gMeme.topLine.height = 50
     gMeme.buttonline.height = 50
 }
-
-
 function focusSet() {
 
     if (gIsMiddleLineActive) {
@@ -305,7 +305,6 @@ function focusSet() {
     }
 
 }
-
 function changeFocus(focusPoints) {
     var idx = focusPoints.findIndex(currFocusPoint => currFocusPoint === gFocusPos)
     if (idx === focusPoints.length - 1) gFocusPos = focusPoints[0]
@@ -317,7 +316,6 @@ function setTextAlign(pos) {
     if (gFocusPos === 'upper') gMeme.topLine.textAlign = pos
     else if (gFocusPos === 'down') gMeme.buttonline.textAlign = pos
     else if (gFocusPos === 'middle') gMeme.middleLine.textAlign = pos
-
 }
 function setStrokeColor(color) {
     if (gFocusPos === 'upper') gMeme.topLine.strokeColor = color
@@ -333,7 +331,6 @@ function setFont(font) {
 
 
 }
-
 function saveMeme() {
     var memeImage = document.getElementById('my-canvas');
     var imgData = getBase64Image(memeImage);

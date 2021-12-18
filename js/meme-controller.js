@@ -11,7 +11,7 @@ var isMiddleLineActive = false
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 
 function init() {
-    renderGallery()
+    getGallery()
     addListeners()
 }
 function addListeners() {
@@ -52,18 +52,13 @@ function getEvPos(ev) {
     }
     return pos
 }
-
-
-
 function onUpLoad() {
     document.querySelector('.file-input').click()
 
 }
-
 function onImgInput(ev) {
     loadImageFromInput(ev, renderImg)
 }
-
 function loadImageFromInput(ev, onImageReady) {
     document.querySelector('.myCanvas').innerHTML = ''
     var reader = new FileReader()
@@ -78,16 +73,9 @@ function loadImageFromInput(ev, onImageReady) {
     console.log('after');
     reader.readAsDataURL(ev.target.files[0])
 }
-
-
 function renderImg(img) {
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
-
-
-
-
-
 function onOpenModal() {
     document.querySelector('.gallery').style.display = "none"
     document.querySelector('.modal').style.visibility = "visible"
@@ -98,21 +86,16 @@ function onCloseModal() {
     document.querySelector('.gallery').style.display = "block"
     document.querySelector('.modal').style.visibility = "hidden"
     restLines()
-    renderGallery()
+    getGallery()
 }
-
 function onImgClicked(data) {
     var imgNum = +data.dataset.num
     console.log('imgNum:', imgNum);
-
     setImg(imgNum)
     onOpenModal()
     getMeme()
 }
-
-
 function renderMeme(gMeme) {
-
     var content = gMeme.topLine.line
     var img = gMeme.pic
     var elImg = document.querySelector(`.${img}`);
@@ -136,7 +119,6 @@ function renderMeme(gMeme) {
 
 
 }
-
 function renderDownline(gMeme) {
     var content = gMeme.buttonline.line
     var fontColor = gMeme.buttonline.fontColor
@@ -171,30 +153,14 @@ function renderMiddleLine(gMeme) {
 
     gCtx.fillText(`${content}`, 200, gMeme.middleLine.height);
 }
-
 function renderCurrLine(line) {
     document.querySelector('[name=line]').value = line
 
 }
-
-// function onSave() {
-//     var line = document.querySelector('[name=line]').value
-
-//     if (gFocusPos === 'upper') setLineTxt(line, 'upper')
-
-//     else if (gFocusPos === 'down') setLineTxt(line, 'down')
-//     document.querySelector('[name=line]').value = ''
-//     console.log('focusPos:', gFocusPos);
-
-//     getMeme()
-
-// }
-
 function onSave() {
     saveMeme()
+    onCloseModal()
 }
-
-
 function onClick() {
     var elImput = document.querySelector('.line')
     var line = document.querySelector('[name=line]').value
@@ -215,11 +181,8 @@ function onClick() {
 
 }
 function onAddLine() {
-
-
     addLine()
 }
-
 function onDeleteLine() {
     deleteLine()
     getMeme()
@@ -228,11 +191,7 @@ function onFontColorChange() {
     var fontColor = document.querySelector('[name=fontColor]').value
     setFontColor(fontColor)
     getMeme()
-
-
-
 }
-
 function onStrokeColorChange() {
     var strokeColor = document.querySelector('[name=strokeColor]').value
     console.log('strokeColor:', strokeColor);
@@ -240,7 +199,6 @@ function onStrokeColorChange() {
     getMeme()
 
 }
-
 function onIncrease() {
     setFontSize('+')
 
@@ -253,19 +211,10 @@ function onDecrease() {
     getMeme()
 
 }
-
 function onFocusSet() {
     focusSet()
     renderCurrLinePos()
-
-    // console.log('currFocus:', currFocus);
-    // gFocusPos = currFocus
-    // if (currFocus === 'upper') {
-    //     focusedOnTop = true
-    // }
-    // else focusedOnTop = false
 }
-
 function onArrowUp() {
     moveLineUp()
     getMeme()
@@ -274,38 +223,16 @@ function onArrowUp() {
 function onArrowDown() {
     moveLineDown()
     getMeme()
-
 }
-
 function downloadImg(elLink) {
     var imgContent = gCanvas.toDataURL('image/jpeg')
     elLink.href = imgContent
 }
-
 function onMemeClick(pic) {
     console.log('pic:', pic);
 
     console.log('hi');
 }
-
-
-
-
-// function onLine() {
-
-//     console.log('hi');
-//     gCtx.beginPath(30, 30);
-//     gCtx.lineWidth = 2;
-//     gCtx.moveTo(30, 30);
-//     gCtx.lineTo(70, 70);
-//     gCtx.strokeStyle = 'red';
-//     gCtx.stroke();
-//     gCtx.closePath();
-
-//     getMeme()
-// }
-
-
 function renderCurrLinePos() {
     const elLine = document.querySelector('.currLine span')
     // console.log('elLine:', elLine);
@@ -316,13 +243,11 @@ function renderCurrLinePos() {
 
 
 }
-
 function onAbout() {
     var test = document.querySelector('.gallery')
     onCloseModal()
     test.innerText = makeLorem(400)
 }
-
 function onTextAlignCenter() {
     setTextAlign('center')
     getMeme()
@@ -336,7 +261,6 @@ function onTextAlignLeft() {
     setTextAlign('left')
     getMeme()
 }
-
 function onSetFont() {
     var currFont = document.querySelector('[name=font]').value
     console.log('currFont:', currFont);
@@ -346,7 +270,6 @@ function onSetFont() {
 
 
 }
-
 function onChengeLeng() {
     var elFlag = document.getElementById('flag');
     console.log('Elflag:', elFlag);
@@ -370,15 +293,9 @@ function onChengeLeng() {
     }
 
 }
-
-// function onType() {
-//     var currKey = document.querySelector('[name=upperLine]').value
-//     gUpperLine += currKey
-//     // console.log('line:', gUpperLine);
-//     console.log('gUpperLine:', gUpperLine);
-
-
-
-//     // console.log('newText:', newText);
-
-// }
+function onStrokeColor() {
+    document.querySelector('.strokeColor').click()
+}
+function onFontColor() {
+    document.querySelector('.color').click()
+}

@@ -1,28 +1,20 @@
 'use strict'
 const gNumOfImg = 18
 
-
-
-
-
-function renderGallery() {
+function renderGallery(imgs) {
     var elGallery = document.querySelector('.gallery')
     var strHtml = ''
-    for (var i = 0; i < gNumOfImg; i++) {
-        strHtml += `<img class="img${i + 1}" data-num=${i + 1} onclick="onImgClicked(this)" src="img/meme-imgs (square)/${i + 1}.jpg">`
+    for (var i = 0; i < imgs.length; i++) {
+        strHtml += `<img class="img${i + 1}" data-num=${i + 1} onclick="onImgClicked(this)" src="${imgs[i].url}">`
     }
     elGallery.innerHTML = strHtml
 }
-
-
 function renderMem() {
 
     var dataImage = localStorage.getItem('imgData');
     var bannerImg = document.getElementById('tableBanner');
     bannerImg.src = "data:image/png;base64," + dataImage;
 }
-
-
 function renderMems() {
     onCloseModal()
     var memes = getFromStorage()
@@ -33,7 +25,6 @@ function renderMems() {
 
     var strHtml = ''
     memes.map(meme => {
-        // strHtml += `<img class="img${i + 1}" data-num=${i + 1} onclick="onImgClicked(this)" src="img/meme-imgs (square)/${i + 1}.jpg">`
         strHtml += `<img src="" id="pic${i + 1}" data-id="${makeId()}" alt="cool meme" onclick="onMemeClick(this)" />`
 
         i++
@@ -52,28 +43,3 @@ function renderMems() {
 
     }
 }
-
-
-
-
-
-// function renderMemes() {
-
-//     var dataImage = localStorage.getItem('imgData');
-//     var bannerImg = document.getElementById('tableBanner');
-//     bannerImg.src = "data:image/png;base64," + dataImage;
-
-
-    // var elImg = document.querySelector('.gallery');
-    // var dataImage = localStorage.getItem('imgData');
-    // elImg.innerHTML = `<img src="data:image/png;base64," +${dataImage}  />`
-
-    // elImg.src = "data:image/png;base64," + dataImage;
-
-
-    // var elGallery = document.querySelector('.gallery')
-    // var strHtml = ''
-    // const memes = getFromStorage()
-    // console.log('memes:', memes);
-
-// }

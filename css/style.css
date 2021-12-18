@@ -48,23 +48,15 @@ header  .logo{
     font-size: 2rem;
 
 }
-
-
-
-
-
 ul{
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-
 li{
     /* padding-left: 100px; */
-    list-style: none;
-    
+    list-style: none;   
 }
-
 .continer{
     background-color: gray;
 }
@@ -213,4 +205,10 @@ align-items: flex-end
     cursor: pointer;
 }
 
-  
+.strokeColor{
+    display: none;
+
+}  
+.color{
+    display: none;
+}
