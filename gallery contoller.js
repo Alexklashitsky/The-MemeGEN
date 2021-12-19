@@ -43,14 +43,29 @@ function renderMems() {
     }
 }
 
-function renderMemeFromSave(img) {
-    var dataImage = img
-    console.log('img:', img.dataset.id);
+function renderMemeFromSave(pic) {
+    var dataImage = pic.src
+    console.log('img:', dataImage);
 
-    var elImg = document.querySelectorAll(`[data-id~="${img.dataset.id}"]`);
-    console.log('elImg:', elImg);
+    // var elImg = document.querySelector(`#pic2`)
+    // console.log('elImg:', elImg);
+    document.querySelector('.myCanvas').innerHTML = ''
+    var reader = new FileReader()
 
-    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+
+
+    var img = new Image()
+    // Render on canvas
+    // img.onload = renderImg.bind(null, img)
+    img.src = dataImage
+
+    console.log('after');
+    // reader.readAsDataURL(target.files[0])
+
     onOpenModal()
+
+
+    gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
+    // onOpenModal()
 
 }
