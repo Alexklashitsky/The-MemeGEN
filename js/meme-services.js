@@ -58,7 +58,7 @@ var gImgs = [
     {
         id: 11,
         url: 'img/meme-imgs (square)/11.jpg',
-        keyword: ['boxer', 'hug', 'gay']
+        keyword: ['boxer', 'hug']
     },
     {
         id: 12,
@@ -211,8 +211,11 @@ function deleteLine() {
 }
 function setImg(num) {
     gMeme.pic = 'img' + num
-    console.log('num:', num);
-    console.log('gMeme:', gMeme);
+
+
+    getMeme()
+    // onOpenModal()
+
 
 
 }
@@ -387,6 +390,12 @@ function saveMeme() {
 }
 function getFromStorage() {
     return loadFromStorage(key)
+}
+function getSearchWord() {
+    console.log('gMapOfSearch:', gMapOfSearch);
+
+    // gMapOfSearch.sort((a, b) => (a) - (b));
+    renderSearchWord(gSearchKes)
 }
 
 

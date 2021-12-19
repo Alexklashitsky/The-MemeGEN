@@ -24,7 +24,7 @@ function renderMems() {
 
     var strHtml = ''
     memes.map(meme => {
-        strHtml += `<img src="" id="pic${i + 1}" data-id="${makeId()}" alt="cool meme" onclick="onMemeClick(this)" />`
+        strHtml += `<img src="" id="pic${i + 1}" data-id="${makeId()}" alt="cool meme" onclick="renderMemeFromSave(this)" />`
 
         i++
     })
@@ -41,4 +41,16 @@ function renderMems() {
         bannerImg.src = "data:image/png;base64," + dataImage;
 
     }
+}
+
+function renderMemeFromSave(img) {
+    var dataImage = img
+    console.log('img:', img.dataset.id);
+
+    var elImg = document.querySelectorAll(`[data-id~="${img.dataset.id}"]`);
+    console.log('elImg:', elImg);
+
+    gCtx.drawImage(elImg, 0, 0, gCanvas.width, gCanvas.height);
+    onOpenModal()
+
 }

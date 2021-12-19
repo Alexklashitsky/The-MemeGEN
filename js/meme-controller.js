@@ -14,6 +14,8 @@ function init() {
     getGallery()
     addListeners()
     createMap()
+    getSearchWord()
+
 }
 function addListeners() {
     addMouseListeners()
@@ -88,6 +90,8 @@ function onCloseModal() {
     getGallery()
 }
 function onImgClicked(data) {
+    console.log('data:', data);
+
     var imgNum = +data.dataset.num
     console.log('imgNum:', imgNum);
     setImg(imgNum)
@@ -135,7 +139,6 @@ function renderDownline(gMeme) {
     gCtx.fillText(`${content}`, 200, gMeme.buttonline.height);
 }
 function renderMiddleLine(gMeme) {
-    console.log('hi');
     var content = gMeme.middleLine.line
     var fontColor = gMeme.middleLine.fontColor
     var fontSize = gMeme.middleLine.fontSize
@@ -297,3 +300,26 @@ function onSearch() {
     // onCloseModal()
 
 }
+function renderSearchWord(keys) {
+    var elSearchCloud = document.querySelector('.search-cloud')
+    var strHtml = ''
+    for (var i = 0; i < 18; i++) {
+        var key = keys[i]
+        strHtml += `<p class="search-keys" onclick="onSearchKey(this)" data-value="${key}">${key}</p>`
+    }
+    // var i = 0
+    // keys.forEach((key) => {
+    //     strHtml += `<p class="search-keys" data-vale="${key}">${key}</p>`
+    //     i++
+    //     if (i > 18) return
+    //     console.log('i:', i);
+    // })
+    elSearchCloud.innerHTML = strHtml
+}
+function onSearchKey(key) {
+    doSearch(key.dataset.value);
+
+
+
+}
+

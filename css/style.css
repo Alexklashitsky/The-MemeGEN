@@ -68,6 +68,7 @@ li{
     align-items: center;
     padding-left: 5%;
     padding-right: 5%;
+    padding-bottom: 10px
 }
 .gallery{
     /* display: none; */
@@ -214,4 +215,21 @@ align-items: flex-end
 }
 .search{
     width: 90px;
+}
+.search-cloud{
+    display: flex;
+    width: 80vw;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 100%;
+    
+    
+}
+.search-keys{
+    padding-right: 5px;
+    color: #A1B1B0;
+}
+.search-keys:hover{
+    cursor: pointer;
+    color: #112A40;
 }
