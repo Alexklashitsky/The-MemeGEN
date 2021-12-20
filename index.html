@@ -36,7 +36,11 @@
 
             <div class="search-bar">
                 <!-- <input type="email" id="contact" name="contact" list="contactList" -->
-                <input class="search" onchange="onSearch()" type="search" list="search" placeholder="search">
+                <div class="searchcont">
+
+                </div>
+
+
                 <datalist class="search-items">
 
                 </datalist>
@@ -56,7 +60,9 @@
                     <canvas id="my-canvas" class="myCanvas" height="450" width="450"></canvas>
                 </div>
                 <div class="controller">
-                    <input type="text" class="line" name="line" onkeypress="onClick()" placeholder="write something up">
+                    <div class="line-input">
+
+                    </div>
                     <div class="icon-box 1 ">
                         <img class="icon" onclick="onArrowUp()" src="icons/up-arrow.png">
                         <img class="icon" onclick="onArrowDown()" src="icons/down-chevron.png">

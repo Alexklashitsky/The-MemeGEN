@@ -15,6 +15,7 @@ function init() {
     addListeners()
     createMap()
     getSearchWord()
+    fillPlaceHolders()
 
 }
 function addListeners() {
@@ -277,6 +278,7 @@ function onChengeLeng() {
         document.body.classList.add('rtl')
         setLang('he')
         doTrans()
+        fillPlaceHolders()
 
     } else {
         gCurrLang = 'en'
@@ -284,7 +286,10 @@ function onChengeLeng() {
         setLang('en')
         document.body.classList.remove('rtl')
         doTrans()
+        fillPlaceHolders()
     }
+
+
 
 }
 function onStrokeColor() {
@@ -322,4 +327,16 @@ function onSearchKey(key) {
 
 
 }
+function fillPlaceHolders() {
+    var search = document.querySelector('.searchcont')
+    var lineInput = document.querySelector('.line-input')
+    if (gCurrLang === 'en') {
+        lineInput.innerHTML = ` <input type="text" class="line" name="line" onkeypress="onClick()" placeholder="write something up">`
+        search.innerHTML = `<input class="search" onchange="onSearch()" type="search" list="search" placeholder="search">`
+    }
 
+    else {
+        search.innerHTML = `<input class="search" onchange="onSearch()" type="search" list="search" placeholder="חיפוש">`
+        lineInput.innerHTML = ` <input type="text" class="line" name="line" onkeypress="onClick()" placeholder="תכתוב משהו...">`
+    }
+}
